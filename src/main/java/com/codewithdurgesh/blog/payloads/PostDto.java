@@ -2,6 +2,8 @@ package com.codewithdurgesh.blog.payloads;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotEmpty;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +15,7 @@ import lombok.Setter;
 public class PostDto {
 
 	
+	private Integer postId;
 	private String title;
 	private String content;	
 	private String imageName; 
