@@ -1,8 +1,8 @@
 package com.codewithdurgesh.blog.payloads;
 
 import java.util.Date;
-
-import javax.validation.constraints.NotEmpty;
+import java.util.HashSet;
+import java.util.Set;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,4 +22,5 @@ public class PostDto {
     private Date addedDate;
 	private CategoryDto category;
 	private UserDto user;
+	private Set<CommentDto> comments = new HashSet<>();
 }
