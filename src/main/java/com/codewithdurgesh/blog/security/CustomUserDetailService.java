@@ -14,19 +14,33 @@ import com.codewithdurgesh.blog.repositories.UserRepository;
 @Service
 public class CustomUserDetailService implements UserDetailsService {
 
-	@Autowired
-	UserRepository userRepo;
+//	@Autowired
+//	UserRepository userRepo;
+//	
+//	@Override
+//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//		// loading user from db by username
+//		
+//		User user = userRepo.findByEmail(username).orElseThrow(() ->
+//		new ResourceNotFoundException("User ", " email : " + username, 0));
+//		
+//		
+//		
+//		return user;
+//	}
 	
+	@Autowired
+	private UserRepository userRepo;
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// loading user from db by username
-		
-		User user = userRepo.findByEmail(username).orElseThrow(() ->
-		new ResourceNotFoundException("User ", " email : " + username, 0));
-		
-		
-		
+
+		// loading user from database by username
+		User user = this.userRepo.findByEmail(username)
+				.orElseThrow(() -> new ResourceNotFoundException("User ", " email : " + username, 0));
+
 		return user;
 	}
+
 
 }
