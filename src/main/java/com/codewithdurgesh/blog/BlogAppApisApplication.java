@@ -34,17 +34,15 @@ public class BlogAppApisApplication implements CommandLineRunner{
 	}
 
 	@Override
-	public void run(String... args) throws Exception {
-		System.out.println(passwordEncoder.encode("Suresh123"));
-		
+	public void run(String... args) throws Exception {		
 		try {
 			Role adminRole = new Role();
 			adminRole.setId(AppConstants.ADMIN_USER);
-			adminRole.setName("ADMIN_USER");
+			adminRole.setName("ROLE_ADMIN");
 			
 			Role normalRole = new Role();
 			normalRole.setId(AppConstants.NORMAL_USER);
-			normalRole.setName("NORMAL_USER");
+			normalRole.setName("ROLE_NORMAL");
 			
 			List<Role> roles = new ArrayList<>();
 			roles.add(normalRole);
