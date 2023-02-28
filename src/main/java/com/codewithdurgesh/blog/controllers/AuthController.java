@@ -100,7 +100,7 @@ public class AuthController {
 
 		JwtAuthResponse response = new JwtAuthResponse();
 		response.setToken(token);
-		//response.setUser(this.mapper.map((User) userDetails, UserDto.class));
+		response.setUser(this.mapper.map((User) userDetails, UserDto.class));
 		return new ResponseEntity<JwtAuthResponse>(response, HttpStatus.OK);
 	}
 
