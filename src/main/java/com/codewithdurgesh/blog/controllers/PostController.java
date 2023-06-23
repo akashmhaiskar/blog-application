@@ -83,7 +83,7 @@ public class PostController {
 		}
 		
 		// get post by id
-		@GetMapping("/post/{postId}")
+		@GetMapping("/posts/{postId}")
 		public ResponseEntity<PostDto> getPostsById(@Valid @PathVariable Integer postId){
 		
 			PostDto post = postService.getPostById(postId);
@@ -111,12 +111,12 @@ public class PostController {
 		// also added sorting
 		@GetMapping("/posts/")
 		public ResponseEntity<PostResponse> getAllPosts(
-				@RequestParam(value = "pageNumber", defaultValue = AppConstants.PAGE_NUMBER, required = false) Integer pageNumebr,
+				@RequestParam(value = "pageNumber", defaultValue = AppConstants.PAGE_NUMBER, required = false) Integer pageNumber,
 				@RequestParam(value = "pageSize", defaultValue = AppConstants.PAGE_SIZE, required = false) Integer pageSize,
 				@RequestParam(value = "sortBy", defaultValue = AppConstants.SORT_BY, required = false) String sortBy,
 				@RequestParam(value = "sortDir", defaultValue = AppConstants.SORT_DIR, required = false) String sortDir){
 		
-			PostResponse postResponse = postService.getAllPosts(pageNumebr,pageSize,sortBy,sortDir);
+			PostResponse postResponse = postService.getAllPosts(pageNumber,pageSize,sortBy,sortDir);
 			return new ResponseEntity<PostResponse>(postResponse, HttpStatus.OK);
 		}
 		
